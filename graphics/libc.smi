@@ -1,0 +1,6 @@
+_require "basis.smi"
+
+structure Libc =
+struct
+  val getTime : unit -> real
+end

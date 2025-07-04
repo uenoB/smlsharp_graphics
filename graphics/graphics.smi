@@ -1,0 +1,49 @@
+_require "basis.smi"
+_require "./gl.smi"
+_require "./glu.smi"
+_require "./glut.smi"
+_require "./libc.smi"
+_require "./react.smi"
+
+structure Graphics =
+struct
+  type color = real * real * real * real (* RGBA *)
+
+  (* predefined colors *)
+  val white : color
+  val black : color
+  val red : color
+  val green : color
+  val blue : color
+  val magenta : color
+  val yellow : color
+  val cyan : color
+
+  datatype graphics =
+      Empty
+    | Box
+    | Disk
+    | Combine of graphics * graphics
+    | Scale of graphics * (real * real)
+    | Move of graphics * (real * real)
+    | Rotate of graphics * real
+    | Color of graphics * color
+    | Clear
+    | Grid of {interval: real, lineWidth: real}
+
+  (* reactivity *)
+  type time = React.time
+  val epoch = React.epoch
+  val stream = React.stream
+  val event = React.event
+  val time : time -> real
+  val mouseLeft : time -> bool option
+  val mouseRight : time -> bool option
+  val mouseMove : time -> (real * real) option
+  val mousePos : time -> real * real
+  val keyboard : time -> char option
+
+  (* main *)
+  val start : (time -> graphics) -> unit
+  val switch : (time -> graphics) -> unit
+end

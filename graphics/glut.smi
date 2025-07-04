@@ -1,0 +1,29 @@
+_require "basis.smi"
+
+structure GLUT =
+struct
+  val glutInit : string -> unit
+  val glutInitDisplayMode : word -> unit
+  val glutInitWindowSize : int * int -> unit
+  val glutCreateWindow : string -> unit
+  val glutDisplayFunc : (unit -> unit) -> unit
+  val glutReshapeFunc : (int * int -> unit) -> unit
+  val glutMouseFunc : (int * int * int * int -> unit) -> unit
+  val glutMotionFunc : (int * int -> unit) -> unit
+  val glutPassiveMotionFunc : (int * int -> unit) -> unit
+  val glutKeyboardFunc : (char * int * int -> unit) -> unit
+  val glutTimerFunc : (int * (int -> unit) * int) -> unit
+  val glutMainLoop : unit -> unit
+  val glutSwapBuffers : unit -> unit
+  val glutPostRedisplay : unit -> unit
+  val glutExtensionSupported : string -> int
+  val glutSolidTeapot : real -> unit
+  val GLUT_RGBA : word
+  val GLUT_DOUBLE : word
+  val GLUT_DEPTH : word
+  val GLUT_MULTISAMPLE : word
+  val GLUT_LEFT_BUTTON : int
+  val GLUT_RIGHT_BUTTON : int
+  val GLUT_UP : int
+  val GLUT_DOWN : int
+end

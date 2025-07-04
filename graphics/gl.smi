@@ -1,0 +1,93 @@
+_require "basis.smi"
+
+structure GL =
+struct
+  type float = Real32.real
+  val glClearColor : (float * float * float * float) -> unit
+  val glEnable : word -> unit
+  val glFrontFace : word -> unit
+  val glLightfv : word * word * (float * float * float * float) -> unit
+  val glClear : word -> unit
+  val glFlush : unit -> unit
+  val glViewport : (int * int * int * int) -> unit
+  val glLoadIdentity : unit -> unit
+  val glMatrixMode : word -> unit
+  val glPushMatrix : unit -> unit
+  val glPopMatrix : unit -> unit
+  val glRotated : (real * real * real * real) -> unit
+  val glTranslated : (real * real * real) -> unit
+  val glMaterialfv : word * word * (float * float * float * float) -> unit
+  val glMaterialiv : word * word * (int * int * int * int) -> unit
+  val glBegin : word -> unit
+  val glEnd : unit -> unit
+  val glNormal3dv : (real * real * real) -> unit
+  val glVertex3dv : (real * real * real) -> unit
+  val glVertex2d : (real * real) -> unit
+  val glVertex3d : (real * real * real) -> unit
+  val glCullFace : word -> unit
+  val glColor4i : (word * word * word * word) -> unit
+  val glColor3d : (real * real * real) -> unit
+  val glColor4f : (float * float * float * float) -> unit
+  val glColor4fv : (float * float * float * float) -> unit
+  val glColor4d : (real * real * real * real) -> unit
+  val glBlendFunc : (word * word) -> unit
+  val glOrtho : (real * real * real * real * real * real) -> unit
+  val glBindTexture : (word * word) -> unit
+  val glGenTextures : (int * word array) -> unit
+  val glTexCoord2d : (real * real) -> unit
+  val glPixelStorei : (word * int) -> unit
+  val glTexParameteri : (word * int * int) -> unit
+  val glNormal3d : (real * real * real) -> unit
+  val glScaled : (real * real * real) -> unit
+  val glDisable : word -> unit
+  val glTexImage2D : (word * int * word * int * int * int * int * int * Word8Array.array) -> unit
+  val glMaterialf : (word * word * float) -> unit
+  val glGetMaterialfv : (word * word * float array) -> unit
+  val glFrustum : (real * real * real * real * real * real) -> unit
+  val glDepthMask : int -> unit
+  val glLineWidth : (float) -> unit
+  val glShadeModel : int -> unit
+  val GL_PROJECTION : word
+  val GL_DEPTH_TEST : word
+  val GL_CULL_FACE : word
+  val GL_BACK : word
+  val GL_FRONT_AND_BACK : word
+  val GL_FRONT : word
+  val GL_CW : word
+  val GL_LIGHTING : word
+  val GL_LIGHT0 : word
+  val GL_LIGHT1 : word
+  val GL_DIFFUSE : word
+  val GL_SPECULAR : word
+  val GL_AMBIENT : word
+  val GL_COLOR_BUFFER_BIT : word
+  val GL_DEPTH_BUFFER_BIT : word
+  val GL_MODELVIEW : word
+  val GL_QUADS : word
+  val GL_POSITION : word
+  val GL_LINE_LOOP : word
+  val GL_LINES : word
+  val GL_POLYGON : word
+  val GL_LINE_SMOOTH : word
+  val GL_POLYGON_SMOOTH : word
+  val GL_MULTISAMPLE : word
+  val GL_BLEND : word
+  val GL_SRC_ALPHA : word
+  val GL_ONE_MINUS_SRC_ALPHA : word
+  val GL_UNSIGNED_BYTE : int
+  val GL_RGBA : int
+  val GL_RGB : int
+  val GL_TEXTURE_2D : word
+  val GL_UNPACK_ALIGNMENT : word
+  val GL_TEXTURE_MIN_FILTER : int
+  val GL_TEXTURE_MAG_FILTER : int
+  val GL_LINEAR : int
+  val GL_NONE : int
+  val GL_TRUE : int
+  val GL_FALSE : int
+  val GL_EMISSION : word
+  val GL_SHININESS : word
+  val GL_TRIANGLE_FAN : word
+  val GL_SMOOTH : int
+  val GL_FLAT : int
+end

@@ -1,0 +1,3 @@
+#!/bin/bash
+export LANG=C
+exec rlwrap -n /usr/local/bin/smlsharp

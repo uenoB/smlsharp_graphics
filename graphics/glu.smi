@@ -1,0 +1,23 @@
+_require "basis.smi"
+
+structure GLU =
+struct
+  type gluQuadricObj (= ptr)
+  val gluPerspective : (real * real * real * real) -> unit
+  val gluLookAt : (real * real * real * real * real * real * real * real * real) -> unit
+  val gluNewQuadric : unit -> gluQuadricObj
+  val gluDeleteQuadric : gluQuadricObj -> unit
+  val gluQuadricDrawStyle : gluQuadricObj * word -> unit
+  val gluQuadricNormals : gluQuadricObj * word -> unit
+  val gluQuadricOrientation : gluQuadricObj * word -> unit
+  val gluCylinder : gluQuadricObj * real * real * real * int * int -> unit
+  val gluDisk : gluQuadricObj * real * real * int * int -> unit
+  val gluSphere : gluQuadricObj * real * int * int -> unit
+  val gluBuild2DMipmaps : word * int * int * int * int * int * Word8Array.array -> int
+  val GLU_FILL : word
+  val GLU_SMOOTH : word
+  val GLU_INSIDE : word
+  val GLU_LINE : word
+  val GLU_FLAT : word
+  val GLU_NONE : word
+end

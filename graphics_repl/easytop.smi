@@ -1,0 +1,114 @@
+_require "basis.smi"
+_require "reify.smi"
+_require "../graphics/graphics.smi"
+
+type graphics = Graphics.graphics
+type time = Graphics.time
+
+structure EasyTop =
+struct
+  (* for internal use only *)
+  val background : graphics
+
+  val rotReal : graphics * real -> graphics
+  val wideReal : graphics * real -> graphics
+  val tallReal : graphics * real -> graphics
+  val downReal : graphics * real -> graphics
+  val upReal : graphics * real -> graphics
+  val leftReal : graphics * real -> graphics
+  val rightReal : graphics * real -> graphics
+  val moveReal : graphics * (real * real) -> graphics
+  val scaleReal : graphics * (real * real) -> graphics
+  val colorReal : graphics * (real * real * real) -> graphics
+
+  val rotInt : graphics * int -> graphics
+  val wideInt : graphics * int -> graphics
+  val tallInt : graphics * int -> graphics
+  val downInt : graphics * int -> graphics
+  val upInt : graphics * int -> graphics
+  val leftInt : graphics * int -> graphics
+  val rightInt : graphics * int -> graphics
+  val moveInt : graphics * (int * int) -> graphics
+  val scaleInt : graphics * (int * int) -> graphics
+  val colorInt : graphics * (int * int * int) -> graphics
+end
+
+val box : graphics
+val disk : graphics
+val empty : graphics
+
+val white : graphics -> graphics
+val black : graphics -> graphics
+val red : graphics -> graphics
+val green : graphics -> graphics
+val blue : graphics -> graphics
+val magenta : graphics -> graphics
+val yellow : graphics -> graphics
+val cyan : graphics -> graphics
+
+val rot =
+    case 'a in graphics * 'a -> graphics of
+      real => EasyTop.rotReal
+    | int => EasyTop.rotInt
+val wide =
+    case 'a in graphics * 'a -> graphics of
+      real => EasyTop.wideReal
+    | int => EasyTop.wideInt
+val tall =
+    case 'a in graphics * 'a -> graphics of
+      real => EasyTop.tallReal
+    | int => EasyTop.tallInt
+val down =
+    case 'a in graphics * 'a -> graphics of
+      real => EasyTop.downReal
+    | int => EasyTop.downInt
+val up =
+    case 'a in graphics * 'a -> graphics of
+      real => EasyTop.upReal
+    | int => EasyTop.upInt
+val left =
+    case 'a in graphics * 'a -> graphics of
+      real => EasyTop.leftReal
+    | int => EasyTop.leftInt
+val right =
+    case 'a in graphics * 'a -> graphics of
+      real => EasyTop.rightReal
+    | int => EasyTop.rightInt
+val move =
+    case 'a in graphics * ('a * 'a) -> graphics of
+      real => EasyTop.moveReal
+    | int => EasyTop.moveInt
+val scale =
+    case 'a in graphics * ('a * 'a) -> graphics of
+      real => EasyTop.scaleReal
+    | int => EasyTop.scaleInt
+val color =
+    case 'a in graphics * ('a * 'a * 'a) -> graphics of
+      real => EasyTop.colorReal
+    | int => EasyTop.colorInt
+
+val ++ : graphics * graphics -> graphics
+
+infix 7 rot wide tall down up left right move scale color
+infix 6 ++
+
+val Box : graphics
+val Disk : graphics
+val Combine : graphics * graphics -> graphics
+val Scale : graphics * (real * real) -> graphics
+val Move : graphics * (real * real) -> graphics
+val Rotate : graphics * real -> graphics
+val Color : graphics * (real * real * real * real) -> graphics
+
+val epoch = Graphics.epoch
+val stream = Graphics.stream
+val time = Graphics.time
+val mouseLeft = Graphics.mouseLeft
+val mouseRight = Graphics.mouseRight
+val mouseMove = Graphics.mouseMove
+val mousePos = Graphics.mousePos
+val keyboard = Graphics.keyboard
+
+val start : (time -> graphics) -> unit
+val play : (real -> graphics) -> unit
+val draw : graphics -> unit

@@ -1,0 +1,5 @@
+**/*.o
+main
+graphics_repl/smlsharp_graphics_repl
+wsl/smlsharp_graphics_repl.tar
+wsl/smlsharp_graphics_repl.wsl

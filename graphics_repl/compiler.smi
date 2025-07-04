@@ -1,0 +1,4 @@
+_require "basis.smi"
+_require "thread.smi"
+_require "compiler/compilePhases/main/main/Main.smi"
+_require "./toplevel.smi" init

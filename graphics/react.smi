@@ -1,0 +1,17 @@
+_require "basis.smi"
+
+structure React =
+struct
+  eqtype time (= array)
+  val epoch : time
+  val newStream : (time * time * 'a -> 'a)
+                  -> 'a
+                  -> (time -> 'a) * (time * 'a -> time)
+  val stream : (time * time * 'a -> 'a)
+               -> 'a
+               -> (time -> 'a)
+  val event : unit -> (time -> 'a option) * ('a -> time)
+
+  val lastTime : time ref
+  val updateTime : (time * 'a -> time) -> 'a -> time
+end
