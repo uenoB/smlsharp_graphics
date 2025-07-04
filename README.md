@@ -8,24 +8,25 @@
    1. 「設定」→「システム」→「オプション機能」→「Windowsのその他の機能」から
       「Linux用Windowsサブシステム」にチェックして「OK」を押す。
    2. 指示に従って再起動。
-2. 再起動後「ターミナル」を開いて、以下のコマンドを実行し、
-   WSL2をアップデートしてください。
-   ```sh
-   wsl --update
-   ```
-3. このリポジトリの
+   3. 再起動後「ターミナル」を開いて、以下のコマンドを実行し、
+      WSL2をアップデートしてください。
+      ```sh
+      wsl --update
+      ```
+2. このリポジトリの
    [Releases](https://github.com/uenoB/smlsharp_graphics/releases/)
    から
-   [smlsharp_graphics_repl.wsl](https://github.com/uenoB/smlsharp_graphics/releases/download/v0.1.0/smlsharp_graphics_repl.wsl)
+   [smlsharp_graphics_repl.wsl](https://github.com/uenoB/smlsharp_graphics/releases/download/v0.1.1/smlsharp_graphics_repl.wsl)
    をダウンロードしてください。
-4. ダウンロードしたsmlsharp_graphics_repl.wslファイルをエクスプローラから
+3. ダウンロードしたsmlsharp_graphics_repl.wslファイルをエクスプローラから
    開くとインストールが始まり、インストール後に自動でSML#が起動します。
-5. 終了するときはグラフィックスを描画するウィンドウを閉じてください。
-6. 2回目以降は、「ターミナル」から以下のコマンドで起動してください。
+4. 終了するときはグラフィックスを描画するウィンドウを閉じてください。
+5. 2回目以降は、スタートメニューの「SMLSharpGraphicsRepl」をクリックするか、
+   「ターミナル」から以下のコマンドで起動してください。
    ```sh
    wsl -d SMLSharpGraphicsRepl
    ```
-7. アンインストールするときは「ターミナル」から以下のコマンドを実行してください。
+6. アンインストールするときは「ターミナル」から以下のコマンドを実行してください。
    ```sh
    wsl --unregister SMLSharpGraphicsRepl
    ```
